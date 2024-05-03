@@ -1,0 +1,17 @@
+/venv
+.vscode
+**__pycache__**
+**.ipynb_checkpoints**
+**.pytest_cache**
+yolov5/
+save**/
+run*.sh
+/*.png
+/*.jpg
+/*.dump
+
+b/
+tmp/
+data/
+config.json
+
