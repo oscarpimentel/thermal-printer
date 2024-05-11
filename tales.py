@@ -12,6 +12,8 @@ import pyaudio
 import wave
 import pydub
 
+import random
+
 from printers import Printer, DummyPrinter
 from utils import is_rpi
 
@@ -96,6 +98,8 @@ else:
     printer = DummyPrinter()
 
 
+printer.println("ready!")
+
 while True: # Run forever
     cond = 1
     if is_rpi():
@@ -159,10 +163,10 @@ while True: # Run forever
             printer.println(f'error whisper: {e}')
             continue
 	
-        categories = ["fantasía"]
+        categories = ["fantasía", "misterio", "terror", "romance"]
         try:
             messages = []
-            cat = categories[0]
+            cat = random.choice(categories)
             words = text.lower().replace(".", "").replace(",", "").replace(" ", ", ")
             content =  f"crea un cuento de {cat} y de tres parrafos. El cuento debe estar basado en las siguientes palabras: {words}"
             messages.append({"role": "user", "content": content})
